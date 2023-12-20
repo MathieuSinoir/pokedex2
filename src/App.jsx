@@ -6,26 +6,21 @@ import NavBar from "./components/NavBar";
 
 
 function App() {
-  const [pokemonIndex, setPokemonIndex] = useState(0)
-  const incrementation = () => {
-    if (pokemonIndex < pokemonList.length - 1) {
-      setPokemonIndex(pokemonIndex + 1)
-    }
+  const [pokemonIndex, setPokemonIndex] = useState(pokemonList[0])
+  const changement = (pokemon) => {
+    setPokemonIndex(pokemon)
   }
 
-  const decrementation = () => {
-    if (pokemonIndex > 0) {
-      setPokemonIndex(pokemonIndex - 1)
-    }
-  }
+
+
   return (
 
     <div>
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      <NavBar navigation={decrementation}
-        bar={incrementation}
-        pokemonIndex={pokemonIndex}
-        pokemonListLength={pokemonList.Length} />
+
+      <NavBar
+        pokemonList={pokemonList}
+        changement={changement} />
 
     </div>
   )
