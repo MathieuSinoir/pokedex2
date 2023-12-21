@@ -1,19 +1,13 @@
-function NavBar(props) {
-    const { pokemonList, changement } = props
-
-
-    const changementPokemon = (pokemon) => {
-        changement(pokemon);
-
-    }
+function NavBar({ pokemonList, changement }) {
 
 
     return (
 
-        <div>
-            {pokemonList.map((pokemon, index) => (
 
-                <button key={index} onClick={() => changementPokemon(pokemon)}>{pokemon.nam}</button>
+        <div>
+            {pokemonList.map((pokemon) => (
+
+                <button key={pokemon.name} onClick={() => changement(pokemonList.indexOf(pokemon))}>{pokemon.name}</button>
 
             ))}
         </div>
